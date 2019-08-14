@@ -74,9 +74,13 @@ You can actually start Beziex_We by opening the link below. Maybe, startup is sl
 <a href="https://beziex.netlify.com/beziex_we/">
 Beziex_We :  (https://beziex.netlify.com/beziex_we/)</a>
 
+<br><br>
+
+ちなみにデモ環境として、Netlify を利用させていただきました。
+
 <br>
 
-使い方は以下の通りとなっています。
+さて使い方は、以下の通りとなっています。
 
 リアルタイムにテッセレーションさせることが目的なので、「Tess スライダ」が最も重要です。
 
