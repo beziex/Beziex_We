@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Beziex_We</title>
+
+    <style type="text/css">
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #wait-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            font-size: 5vw;
+            font-family:
+                -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+                sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            overflow: hidden;
+        }
+        #wait-main {
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            animation: wait-anim-color 5s infinite;
+        }
+        @keyframes wait-anim-color {
+            0% { color: black; }
+            50% { color: white; }
+            100% { color: black; }
+        }
+
+        #app {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wait-container">
+        <div id="wait-main">
+            Just a moment.
+        </div>
+        <div id="app"></div>
+    </div>
+</body>
+
+<script src="./dist/build.js"></script>
+
+</html>
