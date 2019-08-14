@@ -29,7 +29,7 @@ Real-time tessellation algorithm is:
 
 - Use WebGL1 and extensions. Considering an environment that does not support WebGL 2, it is not used.
 - WebGL has not tessellation shader. Therefore, Beziex_We uses only vertex and fragment shader.
-- To do so, use the drawElementsInstancedANGLE function and patch control-points texture.
+- To do so, use the `drawElementsInstancedANGLE` function and patch control-points texture.
 
 <br>
 
@@ -44,7 +44,7 @@ Real-time tessellation algorithm is:
 
 - WebGL1 と拡張機能を使用。WebGL2 未対応の環境を考慮し、(WebGL2 は) 使っていません。
 - WebGL にはテッセレーションシェーダがありません。したがって Beziex_We は、頂点シェーダとフラグメントシェーダだけを使用しています。
-- 上記2シェーダだけで対応するために、drawElementsInstancedANGLE 関数とパッチ コントロールポイント テクスチャを使っています。
+- 上記2シェーダだけで対応するために、`drawElementsInstancedANGLE` 関数とパッチ コントロールポイント テクスチャを使っています。
 
 <br>
 
