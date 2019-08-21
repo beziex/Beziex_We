@@ -61,11 +61,7 @@ Detailed operating environment is unknown. However, operation has been confirmed
 
 <br>
 
-なお Firefox 上では、実行環境の置き場所によっては正常に動かないこともあるようです。SSL が影響しているのかもしれません。（デモ環境を置いた Netlify  上では NG でした）
-
-<br>
-
-またモバイル環境は、スマートフォンの "縦向き" のみ対応しています。タブレットは、多分コントロールパネルの UI バランスが悪いと思います。(タブレットを持ってないので分からない)
+なおモバイル環境は、スマートフォンの "縦向き" のみ対応しています。タブレットは、多分コントロールパネルの UI バランスが悪いと思います。(タブレットを持ってないので分からない)
 
 <br>
 
@@ -417,24 +413,24 @@ Beziex_We のセレクトボックスから選択可能な 3D データ (実体�
 <th width="70%">Description／説明</th>
 </tr>
 <tr>
-<td>MascuteAzur001<br>MascutePav001</td>
+<td>MascuteAzur001.gzjson<br>MascutePav001.gzjson</td>
 <td>CC0 1.0</td>
 <td><a href="https://twitter.com/thecoolmuseum/status/785896516422471681">
 https://twitter.com/thecoolmuseum/status/785896516422471681</a></td>
 </tr>
 <tr>
-<td>04_Cup1<br>18_Ring0<br>19_Sphere1<br></td>
+<td>04_Cup1.gzjson<br>18_Ring0.gzjson<br>19_Sphere1.gzjson<br></td>
 <td>CC0 1.0</td>
 <td>beziex オリジナルの簡単な形状</td>
 </tr>
 <tr>
-<td>Hippopotamus</td>
+<td>Hippopotamus.gzjson</td>
 <td>CC-BY 3.0</td>
 <td>Poly by Google <a href="https://poly.google.com/view/4HNi8dZMdZa">
 https://poly.google.com/view/4HNi8dZMdZa</a></td>
 </tr>
 <tr>
-<td>Manatee (Manatee_01)</td>
+<td>Manatee (Manatee_01.gzjson)</td>
 <td>CC-BY 3.0</td>
 <td>Poly by Google <a href="https://poly.google.com/view/eOwLJiwAPJe">
 https://poly.google.com/view/eOwLJiwAPJe</a></td>
@@ -443,6 +439,13 @@ https://poly.google.com/view/eOwLJiwAPJe</a></td>
 CC0 1.0 : パブリックドメイン
 
 CC-BY 3.0 : 一般公開／リミックス可
+
+<br>
+
+これらの 3D データは、JSON を GZIP したものとなっています。
+ちなみに拡張子を .gz では無く .gzjson とした理由は、Firefox 上にて https で「拡張子が .gz のファイル」を読み込むと、不正なデータとなるからです。.gz としなければ、なぜか大丈夫でした。
+
+（参考）<a href="https://stackoverflow.com/questions/30292868/firefox-fails-to-decompress-gzip-files">stackoverflow : Firefox fails to decompress gzip files</a>
 
 <br>
 
