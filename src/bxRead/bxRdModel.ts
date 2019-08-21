@@ -17,7 +17,7 @@ export class BxRdModel {
     }
 
     private getDataName(index: number): string {
-        return "./data/" + this.rdRoot_.dataName[index] + ".gz";
+        return "./data/" + this.rdRoot_.dataName[index] + ".gzjson";
     }
 
     private static getPromise(url: string): Promise<string> {

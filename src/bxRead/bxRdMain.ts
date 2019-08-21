@@ -69,7 +69,7 @@ export class BxRdMain {
     }
 
     private getDefaultDataName(): string {
-        return "./data/" + this.rdRoot_.dataName[BxDataName.KData_n_MascuteAzur001] + ".gz";
+        return "./data/" + this.rdRoot_.dataName[BxDataName.KData_n_MascuteAzur001] + ".gzjson";
     }
 
     private static getPromise(fileInfo: FileInfo): Promise<string> {
