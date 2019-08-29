@@ -211,28 +211,6 @@ vec3 getDiffMixMain_U( vec3 diffH_U, vec3 diffV_U, float u, float v, vec3 posH, 
 void getDiffMix_U( vec3 diffH_U, vec3 diffV_U, float u, float v, vec3 posH, vec3 posV, out vec3 diffU )
 {
     diffU = ( ( kEps > u || u > ( 1.0 - kEps ) ) && ( kEps > v || v > ( 1.0 - kEps ) ) ) ? diffH_U : getDiffMixMain_U( diffH_U, diffV_U, u, v, posH, posV );
-
-    if( ( kEps > u || u > ( 1.0 - kEps ) ) && ( kEps > v || v > ( 1.0 - kEps ) ) ) {
-        diffU = diffH_U;
-        return;
-    }
-
-    float  pu = u * ( 1.0 - u );
-    float  du = -2.0 * u + 1.0;
-    float  pv = v * ( 1.0 - v );
-
-    float  posDenom   = pu + pv;
-    float  diffDenomU = du;
-    
-    vec3  posNumer = pu * posH + pv * posV;
-
-    vec3  diffNumerU0 = pu * diffH_U + du * posH;
-    vec3  diffNumerU1 = pv * diffV_U;
-    vec3  diffNumerU  = diffNumerU0 + diffNumerU1;
-
-    vec3  numerU = diffNumerU * posDenom - posNumer * diffDenomU;
-
-    diffU = numerU / ( posDenom * posDenom );
 }
 
 void getDiff_U( vec3 hDiffBez0_U[3], vec3 hDiffBez1_U[6], vec3 hDiffBez2_U[6], vec3 hDiffBez3_U[3], vec3 vPosBez0_U[4], vec3 vPosBez1_U[7], vec3 vPosBez2_U[7], vec3 vPosBez3_U[4],
