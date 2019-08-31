@@ -3,7 +3,9 @@ export class BxMath {
     public static readonly KElmY = 1;
     public static readonly KElmZ = 2;
 
-    public static readonly KNearZero = 1.0E-6;
+    public static readonly KNearZero                 = 1.0E-6;
+    public static readonly KDirectionEpsRatio        = 1.0E-4;
+    public static readonly KDirectionEpsRatioSquared = 1.0E-8;
 }
 
 export class BxVec3 {
@@ -53,6 +55,9 @@ export class BxVec3 {
 
     public length(): number {
         return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+    }
+    public lengthSquared(): number {
+        return this.x * this.x + this.y * this.y + this.z * this.z;
     }
 }
 
@@ -112,6 +117,64 @@ export class BxBezier3Line3 {
         }
 
         return diff;
+    }
+
+    public upperTo6(): BxBezier6Line3 {
+        const result = new BxBezier6Line3();
+
+        result.set(0, this.get(0));
+        for (let i=0; i<3; i++) {
+            result.get(1).set(i, (this.get(0).get(i) + this.get(1).get(i)) / 2.0);
+            result.get(2).set(i, (this.get(0).get(i) + 3.0 * this.get(1).get(i) + this.get(2).get(i)) / 5.0);
+            result.get(3).set(i, (this.get(0).get(i) + 9.0 * this.get(1).get(i) + 9.0 * this.get(2).get(i) + this.get(3).get(i)) / 20.0);
+            result.get(4).set(i, (this.get(1).get(i) + 3.0 * this.get(2).get(i) + this.get(3).get(i)) / 5.0);
+            result.get(5).set(i, (this.get(2).get(i) + this.get(3).get(i)) / 2.0);
+        }
+        result.set(6, this.get(3));
+
+        return result;
+    }
+
+    public getIdxNoHandleZero(): {lIdxNoHandleZero: number, rIdxNoHandleZero: number} {
+        let lIdxNoHandleZero: number, rIdxNoHandleZero: number;
+
+        const tmp = new BxVec3();
+        for (let i=0; i<3; i++)
+            tmp.set(i, (this.get(3).get(i) - this.get(0).get(i)));
+
+        const lenBetweenVtx     = tmp.lengthSquared();
+        let   minimumLenSquared = lenBetweenVtx * BxMath.KDirectionEpsRatioSquared;
+        if( minimumLenSquared < ( BxMath.KNearZero * BxMath.KNearZero ) )
+            minimumLenSquared = BxMath.KNearZero * BxMath.KNearZero;
+
+        lIdxNoHandleZero = 0;
+        for (let i=0; i<3; i++) {
+            for (let k=0; k<3; k++)
+                tmp.set(k, (this.get(i+1).get(k) - this.get(i).get(k)));
+
+            if (tmp.lengthSquared() >= minimumLenSquared)
+                break;
+
+            lIdxNoHandleZero++;
+        }
+
+        rIdxNoHandleZero = 2;
+        for (let i=0; i<3; i++ ) {
+            const j = 2 - i;
+
+            for (let k=0; k<3; k++)
+            tmp.set(k, (this.get(j+1).get(k) - this.get(j).get(k)));
+
+            if (tmp.lengthSquared() >= minimumLenSquared)
+                break;
+
+            rIdxNoHandleZero--;
+        }
+
+        if( lIdxNoHandleZero == 3 )
+            rIdxNoHandleZero = 2;
+
+        return {lIdxNoHandleZero: lIdxNoHandleZero, rIdxNoHandleZero: rIdxNoHandleZero};
     }
 }
 

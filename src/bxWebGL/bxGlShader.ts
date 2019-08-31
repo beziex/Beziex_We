@@ -464,8 +464,8 @@ export abstract class BxGlShader extends BxGlShaderBase {
     private hVtoVertexNo(hvId: number, hvOfs: number): {vertexNo0: number, vertexNo1: number} {
         let vertexNo0: number, vertexNo1: number;
 
-        if( hvId == 0 ) {
-            if( hvOfs == 0 ) {
+        if (hvId == 0) {
+            if (hvOfs == 0) {
                 vertexNo0 = 0;
                 vertexNo1 = 1;
             }
@@ -477,7 +477,7 @@ export abstract class BxGlShader extends BxGlShaderBase {
         }
         else {
             if (hvId != 1) alert("hvId != 1");
-            if( hvOfs == 0 ) {
+            if (hvOfs == 0) {
                 vertexNo0 = 0;
                 vertexNo1 = 3;
             }

@@ -5,6 +5,7 @@ import { BxGlShader_Wire } from './bxGlShader_Wire';
 import { BxGlProgContainer } from './bxGlProgContainer';
 import { BxCmUiParam } from '../bxCom/bxCmUiParam';
 import { BxCmSeparatePatch_Object } from '../bxCom/bxCmSeparatePatch';
+import { BxCmCorrectSeparator } from '../bxCom/bxCmCorrectSeparator';
 
 export class BxGlMain extends BxGlMainBase {
 
@@ -82,10 +83,17 @@ export class BxGlMain extends BxGlMainBase {
         if (!this.patch_)
             return;
 
+        const tmp = this.correctProc(this.patch_);
+
         if (this.shade_)
-            this.shade_.genBuf(this.patch_, param);
+            this.shade_.genBuf(tmp, param);
 
         if (this.wire_)
-            this.wire_.genBuf(this.patch_, param);
+            this.wire_.genBuf(tmp, param);
+    }
+
+    private correctProc(src: BxCmSeparatePatch_Object): BxCmSeparatePatch_Object {
+        const objCorrect = new BxCmCorrectSeparator();
+        return objCorrect.exec(src);
     }
 }
