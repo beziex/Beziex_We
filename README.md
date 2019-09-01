@@ -455,5 +455,7 @@ CC-BY 3.0 : 一般公開／リミックス可
 
 <a href="https://qiita.com/beziex/items/d913102ca03266996a0e">Qiita：WebGL でテッセレーションして、曲面パッチ間が滑らかに繋がった物体を表示（２）</a>
 
+<a href="https://qiita.com/beziex/items/00b614f7aa73f5124a19">Qiita：WebGL でテッセレーションして、曲面パッチ間が滑らかに繋がった物体を表示（番外編：法線について）</a>
+
 <br>
 
