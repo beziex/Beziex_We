@@ -61,7 +61,14 @@ export class BxGlProgramBase extends BxGlProgramObject {
                 this.gl_.linkProgram(this.shaderProgram_);
 
                 const info = this.gl_.getProgramInfoLog(this.shaderProgram_);
-                if (info != null && info != "") alert("info != null && info != \"\"");
+                if (info != null && info != "") {
+                    // Safari では下記の Warning が出るので、無視する
+                    if (!(info.indexOf("WARNING: Output of vertex shader 'fragFrontColor' not read by fragment shader") != -1 &&
+                          info.indexOf("WARNING: Output of vertex shader 'fragBackColor' not read by fragment shader")  != -1))
+                    {
+                        alert(info);
+                    }
+                }
             }
         }
     }
