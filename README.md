@@ -71,8 +71,8 @@ You can actually start Beziex_We by opening the link below. Maybe, startup is sl
 
 下記リンクを開くと、実際に動かしてみることが出来ます。おそらくキャッシュが無い時の起動は遅いです。
 
-<a href="https://beziex.netlify.com/beziex_we/">
-Beziex_We :  (https://beziex.netlify.com/beziex_we/)</a>
+<a href="https://beziex.netlify.app/beziex_we/">
+Beziex_We :  (https://beziex.netlify.app/beziex_we/)</a>
 
 <br><br>
 
